@@ -9,6 +9,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Tomighty.Events;
+using Tomighty.Windows.Resources;
 
 namespace Tomighty.Windows.Timer
 {
@@ -39,8 +40,8 @@ namespace Tomighty.Windows.Timer
             longBreakState = new LongBreakState(pomodoroEngine);
             pomodoroCompletedState = new PomodoroCompletedState(pomodoroEngine);
             breakFinishedState = new BreakFinishedState(pomodoroEngine);
-            pomodoroInterruptedState = new TimerInterruptedState("Pomodoro Interrupted", pomodoroEngine);
-            breakInterruptedState = new TimerInterruptedState("Break Interrupted", pomodoroEngine);
+            pomodoroInterruptedState = new TimerInterruptedState(Misc.TimerWindowPresenter_Title_Pomodoro_Interrupted, pomodoroEngine);
+            breakInterruptedState = new TimerInterruptedState(Misc.TimerWindowPresenter_Title_Break_Interrupted, pomodoroEngine);
 
             currentState = idleState;
 
@@ -217,10 +218,10 @@ namespace Tomighty.Windows.Timer
                 if (window == null)
                     return;
 
-                window.UpdateTitle("Idle");
+                window.UpdateTitle(Misc.TimerWindowPresenter_Title_Idle);
                 window.UpdateColorScheme(TimerWindow.DarkGray);
                 window.UpdateTimeDisplay(Duration.Zero.ToTimeString());
-                window.SetTimerAction("Start Pomodoro", StartTimer);
+                window.SetTimerAction(Misc.SetTimerAction_Start_Pomodoro, StartTimer);
             }
 
             private void StartTimer()
@@ -243,10 +244,10 @@ namespace Tomighty.Windows.Timer
                 if (window == null)
                     return;
 
-                window.UpdateTitle("Pomodoro");
+                window.UpdateTitle(Misc.TimerWindowPresenter_Title_Pomodoro);
                 window.UpdateColorScheme(TimerWindow.Red);
                 window.UpdateTimeDisplay(remainingTime.ToTimeString());
-                window.SetTimerAction("Interrupt", pomodoroEngine.StopTimer);
+                window.SetTimerAction(Misc.SetTimerAction_Interrupt, pomodoroEngine.StopTimer);
             }
         }
 
@@ -264,10 +265,10 @@ namespace Tomighty.Windows.Timer
                 if (window == null)
                     return;
 
-                window.UpdateTitle("Short Break");
+                window.UpdateTitle(Misc.TimerWindowPresenter_Title_Short_Break);
                 window.UpdateColorScheme(TimerWindow.Green);
                 window.UpdateTimeDisplay(remainingTime.ToTimeString());
-                window.SetTimerAction("Interrupt", pomodoroEngine.StopTimer);
+                window.SetTimerAction(Misc.SetTimerAction_Interrupt, pomodoroEngine.StopTimer);
             }
         }
 
@@ -285,10 +286,10 @@ namespace Tomighty.Windows.Timer
                 if (window == null)
                     return;
 
-                window.UpdateTitle("Long Break");
+                window.UpdateTitle(Misc.TimerWindowPresenter_Title_Long_Break);
                 window.UpdateColorScheme(TimerWindow.Blue);
                 window.UpdateTimeDisplay(remainingTime.ToTimeString());
-                window.SetTimerAction("Interrupt", pomodoroEngine.StopTimer);
+                window.SetTimerAction(Misc.SetTimerAction_Interrupt, pomodoroEngine.StopTimer);
             }
         }
 
@@ -306,10 +307,10 @@ namespace Tomighty.Windows.Timer
                 if (window == null)
                     return;
 
-                window.UpdateTitle("Pomodoro Completed");
+                window.UpdateTitle(Misc.TimerWindowPresenter_Title_Pomodoro_Completed);
                 window.UpdateColorScheme(TimerWindow.DarkGray);
                 window.UpdateTimeDisplay(Duration.Zero.ToTimeString());
-                window.SetTimerAction($"Start {pomodoroEngine.SuggestedBreakType.GetName()}", StartTimer);
+                window.SetTimerAction(string.Format(Misc.SetTimerAction_Completed_StartBreak, pomodoroEngine.SuggestedBreakType.GetName()), StartTimer);
             }
 
             private void StartTimer()
@@ -332,10 +333,10 @@ namespace Tomighty.Windows.Timer
                 if (window == null)
                     return;
 
-                window.UpdateTitle("Break Finished");
+                window.UpdateTitle(Misc.TimerWindowPresenter_Title_BreakFinished);
                 window.UpdateColorScheme(TimerWindow.DarkGray);
                 window.UpdateTimeDisplay(Duration.Zero.ToTimeString());
-                window.SetTimerAction("Start Pomodoro", StartTimer);
+                window.SetTimerAction(Misc.SetTimerAction_Start_Pomodoro, StartTimer);
             }
 
             private void StartTimer()
@@ -363,7 +364,7 @@ namespace Tomighty.Windows.Timer
                 window.UpdateTitle(title);
                 window.UpdateColorScheme(TimerWindow.DarkGray);
                 window.UpdateTimeDisplay(remainingTime.ToTimeString());
-                window.SetTimerAction("Start Pomodoro", StartTimer);
+                window.SetTimerAction(Misc.SetTimerAction_Start_Pomodoro, StartTimer);
             }
 
             private void StartTimer()
