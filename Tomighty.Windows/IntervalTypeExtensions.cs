@@ -7,7 +7,6 @@
 
 using System;
 using Tomighty.Windows.Properties;
-using Tomighty.Windows.Resources;
 
 namespace Tomighty.Windows
 {
@@ -17,9 +16,9 @@ namespace Tomighty.Windows
         {
             switch (intervalType)
             {
-                case IntervalType.Pomodoro: return Misc.String_Pomodoro;
-                case IntervalType.ShortBreak: return Misc.String_ShortBreak;
-                case IntervalType.LongBreak: return Misc.String_LongBreak;
+                case IntervalType.Pomodoro: return Resources.String_Pomodoro;
+                case IntervalType.ShortBreak: return Resources.String_ShortBreak;
+                case IntervalType.LongBreak: return Resources.String_LongBreak;
                 default: throw new ArgumentException($"Unknown interval type: {intervalType}");
             }
         }
