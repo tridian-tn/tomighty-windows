@@ -9,7 +9,6 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using Tomighty.Windows.Resources;
 
 namespace Tomighty.Windows.About
 {
@@ -24,7 +23,7 @@ namespace Tomighty.Windows.About
         {
             var version = Assembly.GetExecutingAssembly().GetName().Version;
 
-            titleLabel.Text = string.Format(Misc.AboutWindow_Title, version.Major, version.Minor, version.Build);
+            titleLabel.Text = $"Tomighty {version.Major}.{version.Minor}.{version.Build}";
             licenseTextBox.Text = File.ReadAllText(@"LICENSE.txt");
             productVersionTextBox.Text = Version.Product;
         }

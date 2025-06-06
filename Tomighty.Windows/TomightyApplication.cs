@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Tomighty.Windows.About;
 using Tomighty.Windows.Notifications;
 using Tomighty.Windows.Preferences;
-using Tomighty.Windows.Resources;
 using Tomighty.Windows.Timer;
 using Tomighty.Windows.Tray;
 
@@ -50,7 +49,7 @@ namespace Tomighty.Windows
         {
             var trayIcon = new NotifyIcon(new Container());
 
-            trayIcon.Text = Misc.TomightyApplication_CreateTrayIcon_Text;
+            trayIcon.Text = "Tomighty";
             trayIcon.Icon = Properties.Resources.icon_tomato_white;
             trayIcon.ContextMenuStrip = trayMenu.Component;
             trayIcon.Visible = true;
