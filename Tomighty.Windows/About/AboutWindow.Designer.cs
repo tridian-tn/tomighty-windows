@@ -35,6 +35,7 @@ namespace Tomighty.Windows.About
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutWindow));
             this.titleLabel = new System.Windows.Forms.Label();
             this.urlLabel = new System.Windows.Forms.Label();
             this.licenseTextBox = new System.Windows.Forms.TextBox();
@@ -44,71 +45,38 @@ namespace Tomighty.Windows.About
             // 
             // titleLabel
             // 
-            this.titleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.titleLabel, "titleLabel");
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(612, 40);
-            this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "Tomighty";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // urlLabel
             // 
-            this.urlLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.urlLabel.Location = new System.Drawing.Point(12, 49);
+            resources.ApplyResources(this.urlLabel, "urlLabel");
             this.urlLabel.Name = "urlLabel";
-            this.urlLabel.Size = new System.Drawing.Size(612, 20);
-            this.urlLabel.TabIndex = 2;
-            this.urlLabel.Text = "http://www.tomighty.org";
-            this.urlLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // licenseTextBox
             // 
-            this.licenseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.licenseTextBox.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.licenseTextBox.Location = new System.Drawing.Point(18, 91);
-            this.licenseTextBox.Multiline = true;
+            resources.ApplyResources(this.licenseTextBox, "licenseTextBox");
             this.licenseTextBox.Name = "licenseTextBox";
             this.licenseTextBox.ReadOnly = true;
-            this.licenseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.licenseTextBox.Size = new System.Drawing.Size(606, 282);
-            this.licenseTextBox.TabIndex = 3;
-            this.licenseTextBox.WordWrap = false;
             // 
             // closeButton
             // 
-            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeButton.Location = new System.Drawing.Point(549, 379);
+            resources.ApplyResources(this.closeButton, "closeButton");
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(75, 23);
-            this.closeButton.TabIndex = 0;
-            this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // productVersionTextBox
             // 
-            this.productVersionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.productVersionTextBox, "productVersionTextBox");
             this.productVersionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.productVersionTextBox.Location = new System.Drawing.Point(18, 72);
             this.productVersionTextBox.Name = "productVersionTextBox";
             this.productVersionTextBox.ReadOnly = true;
-            this.productVersionTextBox.Size = new System.Drawing.Size(606, 13);
-            this.productVersionTextBox.TabIndex = 4;
-            this.productVersionTextBox.Text = "<product version>";
-            this.productVersionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // AboutWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 414);
             this.Controls.Add(this.productVersionTextBox);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.licenseTextBox);
@@ -118,8 +86,6 @@ namespace Tomighty.Windows.About
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "About Tomighty";
             this.Load += new System.EventHandler(this.AboutForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

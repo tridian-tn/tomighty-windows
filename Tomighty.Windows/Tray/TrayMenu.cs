@@ -8,6 +8,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Tomighty.Windows.Resources;
 
 namespace Tomighty.Windows.Tray
 {
@@ -31,21 +32,21 @@ namespace Tomighty.Windows.Tray
             remainingTimeItem.Enabled = false;
             remainingTimeItem.Font = new Font(remainingTimeItem.Font, FontStyle.Bold);
 
-            stopTimerItem = new ToolStripMenuItem("Stop", Properties.Resources.image_stop);
+            stopTimerItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_Stop, Properties.Resources.image_stop);
 
             pomodoroCountItem = new ToolStripMenuItem();
             pomodoroCountItem.Enabled = false;
 
-            resetPomodoroCountItem = new ToolStripMenuItem("Reset count");
+            resetPomodoroCountItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_Reset_count);
             resetPomodoroCountItem.Enabled = false;
 
-            startPomodoroItem = new ToolStripMenuItem("Pomodoro", Properties.Resources.image_tomato_red);
-            startShortBreakItem = new ToolStripMenuItem("Short break", Properties.Resources.image_tomato_green);
-            startLongBreakItem = new ToolStripMenuItem("Long break", Properties.Resources.image_tomato_blue);
+            startPomodoroItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_Pomodoro, Properties.Resources.image_tomato_red);
+            startShortBreakItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_Short_break, Properties.Resources.image_tomato_green);
+            startLongBreakItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_Long_break, Properties.Resources.image_tomato_blue);
 
-            aboutItem = new ToolStripMenuItem("About Tomighty");
-            preferencesItem = new ToolStripMenuItem("Preferences...");
-            exitItem = new ToolStripMenuItem("Exit");
+            aboutItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_About_Tomighty);
+            preferencesItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_Preferences___);
+            exitItem = new ToolStripMenuItem(Misc.TrayMenu_TrayMenu_Exit);
 
             contextMenu = new ContextMenuStrip();
             contextMenu.Items.Add(remainingTimeItem);
@@ -76,7 +77,7 @@ namespace Tomighty.Windows.Tray
         public void OnExitClick(EventHandler handler) => exitItem.Click += handler;
 
         public void UpdateRemainingTime(string text) => remainingTimeItem.Text = text;
-        public void UpdatePomodoroCount(int count) => pomodoroCountItem.Text = $"Completed pomodoros: {count}";
+        public void UpdatePomodoroCount(int count) => pomodoroCountItem.Text = string.Format(Misc.TrayMenu_UpdatePomodoroCount_Completed_pomodoros, count);
         public void EnableStartPomodoroItem(bool enable) => startPomodoroItem.Enabled = enable;
         public void EnableStartShortBreakItem(bool enable) => startShortBreakItem.Enabled = enable;
         public void EnableStartLongBreakItem(bool enable) => startLongBreakItem.Enabled = enable;

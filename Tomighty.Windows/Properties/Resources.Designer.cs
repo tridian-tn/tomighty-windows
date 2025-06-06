@@ -220,33 +220,6 @@ namespace Tomighty.Windows.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Long break.
-        /// </summary>
-        internal static string String_LongBreak {
-            get {
-                return ResourceManager.GetString("String_LongBreak", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pomodoro.
-        /// </summary>
-        internal static string String_Pomodoro {
-            get {
-                return ResourceManager.GetString("String_Pomodoro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Short break.
-        /// </summary>
-        internal static string String_ShortBreak {
-            get {
-                return ResourceManager.GetString("String_ShortBreak", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; 
         ///&lt;toast launch=&quot;tomighty&quot;&gt;
         ///  &lt;visual&gt;
